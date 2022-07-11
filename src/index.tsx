@@ -12,10 +12,9 @@ const root = createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div className="h-screen w-screen">
+        <App />
+      </div>
     </HashRouter>
   </React.StrictMode>
 );
