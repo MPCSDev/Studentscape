@@ -1,4 +1,5 @@
 {
+  "homepage": "https://github.com/MPCSDev/Studentscape",
   "name": "studentscape",
   "version": "1.0.0",
   "description": "",
@@ -17,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/MPCSDev/Studentscape/issues"
   },
-  "homepage": "https://github.com/MPCSDev/Studentscape#readme",
   "devDependencies": {
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
