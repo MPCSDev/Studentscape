@@ -1,19 +1,16 @@
 import { onAuthStateChanged } from "firebase/auth";
 import React, { FC, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { auth } from "../../firebase";
-import Home from "../../routes/Home";
-import Login from "../../routes/Login";
+import { auth } from "../firebase";
+import Home from "../routes/Home";
+import Login from "../routes/Login";
 
-const StartUp: FC = () => {
+const App: FC = () => {
   const [loading, setLoading] = useState(true);
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-
-      console.log("HERE");
-
       setLoading(false);
       setLoggedIn(user !== null);
     });
@@ -41,4 +38,4 @@ const StartUp: FC = () => {
   return <Login />;
 };
 
-export default StartUp;
+export default App;

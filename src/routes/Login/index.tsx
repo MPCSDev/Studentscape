@@ -1,5 +1,7 @@
+import { signInWithRedirect } from "firebase/auth";
 import React, { FC, useState } from "react";
-import { auth } from "../../firebase";
+import SubmitButton from "../../components/Buttons/SubmitButton";
+import { auth, googleProvider } from "../../firebase";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import VerifyEmail from "./VerifyEmail";
@@ -21,7 +23,7 @@ const Login: FC = () => {
   }
 
   return (
-    <div className="max-w-[500px] w-full m-auto px-3 space-y-3">
+    <div className="max-w-[500px] w-full m-auto px-3 space-y-5">
       {showForm === Form.Login && (
         <>
           <LoginForm />
@@ -34,6 +36,20 @@ const Login: FC = () => {
               Register
             </button>
           </p>
+
+          <hr />
+
+          <SubmitButton
+            onClick={async () => {
+              try {
+                await signInWithRedirect(auth, googleProvider);
+              } catch (error) {
+                alert(error.code);
+              }
+            }}
+          >
+            Sign in with Google
+          </SubmitButton>
         </>
       )}
       {showForm === Form.Register && (

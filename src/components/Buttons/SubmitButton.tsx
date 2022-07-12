@@ -8,19 +8,35 @@ interface IProps {
 }
 
 const SubmitButton: FC<IProps> = ({ disabled, onClick, color, children }) => {
+  const [loading, setLoading] = useState(false);
+
   let colorString = "bg-blue-500 hover:bg-blue-700 disabled:bg-blue-400";
   if (color === 'red') {
     colorString = `bg-red-500 hover:bg-red-700 disabled:bg-red-400`;
   }
 
+  useEffect(() => {
+    if (!onClick && disabled === false) {
+      setLoading(false);
+    }
+  }, [disabled]);
+
   return (
     <button
       className={`rounded-md w-full p-2 font-semibold text-white flex justify-center ${colorString}`}
       disabled={disabled}
-      onClick={onClick}
+      onClick={async () => {
+        setLoading(true);
+
+        if (onClick) {
+          await onClick();
+          setLoading(false);
+        }
+
+      }}
       type="submit"
     >
-      {disabled ? (
+      {loading ? (
         <svg
           className="w-5 h-5 -ml-1 text-white animate-spin"
           xmlns="http://www.w3.org/2000/svg"
