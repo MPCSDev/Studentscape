@@ -12,7 +12,7 @@ const LoginForm: FC = () => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <div className="space-y-5">
+    <>
       <h2 className="font-bold text-center text-xl">Login</h2>
 
       {error && <ErrorBar error={error} />}
@@ -44,12 +44,7 @@ const LoginForm: FC = () => {
           </Form>
         )}
       </Formik>
-
-      <p className="my-3 font-semibold">
-        Do not have an account ?
-        <button className="text-blue-500 px-2"> Register </button>
-      </p>
-    </div>
+    </>
   );
 };
 

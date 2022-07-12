@@ -2,6 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import React, { FC, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { auth } from "../../firebase";
+import Home from "../../routes/Home";
 import Login from "../../routes/Login";
 
 const StartUp: FC = () => {
@@ -10,6 +11,9 @@ const StartUp: FC = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+
+      console.log("HERE");
+
       setLoading(false);
       setLoggedIn(user !== null);
     });
@@ -20,20 +24,21 @@ const StartUp: FC = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading ...</div>
+    return <div>Loading ...</div>;
   }
 
-  if (loggedIn) {
+  if (loggedIn && auth.currentUser.emailVerified) {
     return (
       <Routes>
-        <Route path="/" element={<h1 onClick={() => auth.signOut()}>Studentscape</h1>} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
       </Routes>
-    )
+    );
   }
 
-  return (
-    <Login />
-  )
+  return <Login />;
 };
 
 export default StartUp;
