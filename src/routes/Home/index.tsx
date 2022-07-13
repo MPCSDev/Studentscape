@@ -1,26 +1,25 @@
 import { signOut } from "firebase/auth";
 import React, { FC } from "react";
-import SubmitButton from "../../components/Buttons/SubmitButton";
+import LoadingButton from "../../components/Buttons/LoadingButton";
 import { auth } from "../../firebase";
 
 const Home: FC = () => {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full text-neutral-200">
       <div className="p-3 flex justify-between items-center">
         <h1 className="font-bold text-xl">Studentscape</h1>
         <span>
-        <SubmitButton
-          color="red"
+        <LoadingButton
           onClick={async () => {
             await signOut(auth);
           }}
         >
           Sign Out
-        </SubmitButton>
+        </LoadingButton>
         </span>
       </div>
 
-      <div className="bg-neutral-100 flex-auto flex justify-center items-center"> Some Content for Home !</div>
+      <div className="flex-auto flex justify-center items-center"> Some Content for Home !</div>
     </div>
   );
 };

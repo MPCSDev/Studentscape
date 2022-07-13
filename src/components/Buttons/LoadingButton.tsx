@@ -1,15 +1,27 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Button from ".";
 
 interface IProps {
-  isSubmitting: boolean;
+  color?: string;
+  onClick: () => Promise<any>;
   children: React.ReactNode;
 }
 
-const SubmitButton: FC<IProps> = ({ isSubmitting, children }) => {
+const LoadingButton: FC<IProps> = ({ color, onClick, children }) => {
+  const [loading, setLoading] = useState(false);
+
   return (
-    <Button type="submit">
-      {isSubmitting ? (
+    <Button
+      type="button"
+      color={color}
+      disabled={loading}
+      onClick={async () => {
+        setLoading(true);
+        await onClick();
+        setLoading(false);
+      }}
+    >
+      {loading ? (
         <svg
           className="w-5 h-5 -ml-1 text-white animate-spin"
           xmlns="http://www.w3.org/2000/svg"
@@ -37,4 +49,4 @@ const SubmitButton: FC<IProps> = ({ isSubmitting, children }) => {
   );
 };
 
-export default SubmitButton;
+export default LoadingButton;
