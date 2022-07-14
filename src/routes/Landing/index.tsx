@@ -12,12 +12,12 @@ interface IProps {
 const Landing: FC<IProps> = ({ spinner }) => {
   return (
     <div className="h-full max-w-[500px] m-auto flex flex-col">
-      <div className="pt-20">
+      <div className="h-1/3 flex justify-center items-center">
         <h1 className="font-bold text-4xl text-center text-neutral-200">
           Studentscape
         </h1>
       </div>
-      <div className="flex-auto px-3 text-neutral-200 flex justify-center items-center">
+      <div className="h-2/3 px-3 text-neutral-200 flex justify-center items-center">
         {spinner ? (
           <Spinner />
         ) : (

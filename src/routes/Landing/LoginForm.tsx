@@ -20,7 +20,7 @@ const LoginForm: FC = () => {
 
   return (
     <div className="space-y-4 flex-auto">
-      {/* <h2 className="font-bold text-xl text-center">Login / Register</h2> */}
+      <h2 className="font-bold text-xl text-center">Login / Register</h2>
 
       {error && <ErrorBar error={error} />}
       {info && <InfoBar>{info}</InfoBar>}

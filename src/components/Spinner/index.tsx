@@ -1,19 +1,8 @@
 import React, { FC } from 'react';
 
-import './index.css';
-
 const Spinner: FC = () => {
   return (
-    <div className="h-full flex justify-center items-center">
-      <div className="loadingio-spinner-bars-wbxz0i13iq">
-        <div className="ldio-42ninjqcgp4">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>
+    <div className="h-10 w-10 border-t-4 border-4 border-l-transparent border-cyan-500 rounded-full animate-spin" />
   );
 }
 
