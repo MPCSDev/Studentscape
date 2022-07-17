@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 
-const Home: FC = () => {
+const Search: FC = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Search</h1>
     </div>
   );
 }
 
-export default Home;
+export default Search;

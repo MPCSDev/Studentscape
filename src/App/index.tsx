@@ -2,7 +2,7 @@ import React, { FC, Suspense, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 
-const Home = React.lazy(() => import("../routes/Home"));
+const Main = React.lazy(() => import("../routes/Main"));
 
 import Landing from "../routes/Landing";
 
@@ -24,7 +24,7 @@ const App: FC = () => {
   if (loggedIn && auth.currentUser.emailVerified) {
     return (
       <Suspense fallback={<Landing spinner={true} />}>
-        <Home />
+        <Main />
       </Suspense>
     );
   }
