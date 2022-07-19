@@ -1,5 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, Suspense } from "react";
 import { HashRouter, Link, Route, Routes } from "react-router-dom";
+import Spinner from "../../components/Spinner";
 
 const Home = React.lazy(() => import( "../Home"));
 const Groups = React.lazy(() => import( "../Groups"));
@@ -11,6 +12,7 @@ const Main: FC = () => {
   return (
     <div className="flex flex-col-reverse md:flex-row h-full text-neutral-200">
       <HashRouter>
+
         <div className="bg-blue-500 p-3">
           <div className="flex justify-around md:justify-start md:flex-col md:space-y-5">
             <Link to="/">
@@ -30,14 +32,17 @@ const Main: FC = () => {
             </Link>
           </div>
         </div>
+
         <div className="flex-auto">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/groups" element={<Groups />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/notifications" element={<Notifications />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+          <Suspense fallback={<Spinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/groups" element={<Groups />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/notifications" element={<Notifications />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </Suspense>
         </div>
       </HashRouter>
     </div>

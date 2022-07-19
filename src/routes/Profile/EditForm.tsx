@@ -1,10 +1,10 @@
 import React, { FC, useState } from "react";
 import ProfilePhoto from "../../components/ProfilePhoto";
 import { useFormik } from "formik";
-import { auth, storage } from "../../firebase";
+import { app, auth } from "../../firebase";
 import SubmitButton from "../../components/Buttons/SubmitButton";
 import ErrorBar from "../../components/ErrorBar";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
+import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage";
 import { updateProfile } from "firebase/auth";
 
 interface IProps {
@@ -28,7 +28,7 @@ const EditForm: FC<IProps> = ({ closeForm }) => {
         let url = auth.currentUser.photoURL;
 
         if (photo !== url) {
-          const storageRef = ref(storage, `profile/${auth.currentUser.uid}`);
+          const storageRef = ref(getStorage(app), `profile/${auth.currentUser.uid}`);
           await uploadString(storageRef, photo, "data_url");
 
           url = await getDownloadURL(storageRef);

@@ -20,7 +20,9 @@ const config = {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), "..."],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(),
+  ],
 };
 
 module.exports = merge(common, config);
