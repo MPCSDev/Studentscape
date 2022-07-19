@@ -33,8 +33,8 @@ const Main: FC = () => {
           </div>
         </div>
 
-        <div className="flex-auto">
-          <Suspense fallback={<Spinner />}>
+        <div className="flex-auto relative">
+          <Suspense fallback={<div className="absolute top-1/2 left-1/2 -mt-5 -ml-5"><Spinner /></div>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/groups" element={<Groups />} />
