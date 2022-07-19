@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstudentscape=self.webpackChunkstudentscape||[]).push([[663],{663:(e,t,s)=>{s.r(t),s.d(t,{default:()=>c});var a=s(294);const c=()=>a.createElement("div",null,a.createElement("h1",null,"Search"))}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstudentscape=self.webpackChunkstudentscape||[]).push([[812],{812:(e,t,s)=>{s.r(t),s.d(t,{default:()=>l});var u=s(294);const l=()=>u.createElement("div",null,u.createElement("h1",null,"Groups"))}}]);
