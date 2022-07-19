@@ -16,7 +16,10 @@ const EmailField: FC<IProps> = ({ error }) => {
       />
 
       {error && (
-        <span className="material-icons text-red-500 flex justify-center items-center mr-4 cursor-help" title={error}>
+        <span
+          className="material-icons text-red-500 flex justify-center items-center mr-4 cursor-help"
+          title={error}
+        >
           error
         </span>
       )}

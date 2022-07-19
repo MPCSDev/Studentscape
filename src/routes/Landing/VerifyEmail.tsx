@@ -20,7 +20,6 @@ const VerifyEmail: FC = () => {
 
   return (
     <div className="space-y-4 flex-auto">
-
       {stage === Stage.SendEmail && (
         <>
           {error && <ErrorBar error={error} />}
@@ -77,7 +76,6 @@ const VerifyEmail: FC = () => {
           </LoadingButton>
         </>
       )}
-
     </div>
   );
 };
