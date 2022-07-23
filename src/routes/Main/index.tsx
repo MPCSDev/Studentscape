@@ -35,7 +35,7 @@ const Main: FC = () => {
             <ProfileForm
               firstName=""
               lastName=""
-              photoURL=""
+              photoURL={auth.currentUser.photoURL || ""}
               onSave={async () => location.reload()}
             />
           </div>
