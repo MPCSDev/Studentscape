@@ -17,8 +17,8 @@ export async function userExists(firebaseUID: string) {
 
 export async function userUpdate(data: ProfileData) {
 
-  await fetch(`${API_URL}/user/upsert/`, {
-    method: "POST",
+  await fetch(`${API_URL}/user/`, {
+    method: "PUT",
     mode: "cors",
     headers: {
       'Content-Type': 'application/json'
