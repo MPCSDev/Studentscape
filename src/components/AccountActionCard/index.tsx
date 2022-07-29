@@ -5,6 +5,7 @@ import LoadingButton from "../Buttons/LoadingButton";
 const AccountActionCard: FC = () => {
   return (
     <div className="bg-neutral-700 max-w-xl w-full p-3 rounded-md">
+      <p className="font-semibold text-center mb-3">Account Actions</p>
       <LoadingButton
         color="red"
         onClick={async () => {
